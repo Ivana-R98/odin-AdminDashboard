@@ -119,7 +119,7 @@ header img {
 main {
     grid-area: 2/2/3/3;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2.5fr 1fr;
     gap: 1rem;
 }
 .card, .trending, .info {
@@ -157,11 +157,12 @@ h3 {
 .icons {
     justify-self: end;
     align-self: end;
-    height: 30px;
+    display: flex;
+    gap: 6px;
+    height: fit-content;
+    margin-right: 0.7rem;
 }
-.icons a {
-    line-height: 25px;
-} 
+
 
 .announce {
     grid-area: 1/2/2/3;
@@ -187,21 +188,35 @@ h3 {
 }
 .trending img, .trending .text {
     display: inline-block;
-    margin: 15px 8px;
+    margin: 12px 8px;
     vertical-align: middle;
 }
 .trending img {
-    margin-left: 2rem;
+    margin-left: 1rem;
+}
+.trending > div, h4 {
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-image: linear-gradient(90deg, rgb(9, 229, 245), rgb(69,69,255)) 1;
 }
 
 /* media for lower than laptops */
-@media screen and (max-height: 1024px) {
+@media screen and (max-width: 1024px) {
     header {
-        max-height: auto;
-        
+        max-height: fit-content;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+    }
+    .acc {
+        gap: 0;
+        margin: 0;
     }
     .container {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(6, 1fr);
+    }
+    .card {
+        height: fit-content;
+        padding-left: 6px;
     }
 }
